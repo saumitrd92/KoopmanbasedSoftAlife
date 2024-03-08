@@ -1,0 +1,15 @@
+**/*.ps
+EM/EM_Exp5/sim_data/training
+EM/EM_Exp1/sim_data/training
+EM/EM_Exp2/sim_data/training
+EM/EM_Exp3/sim_data/training
+EM/EM_Exp4/sim_data/training
+EM/EM_Exp5/sim_data/test
+EM/EM_Exp1/sim_data/test
+EM/EM_Exp2/sim_data/test
+EM/EM_Exp3/sim_data/test
+EM/EM_Exp4/sim_data/test
+**/tmp
+NL
+**/*h5
+**/events*
