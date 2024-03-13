@@ -112,7 +112,7 @@ to turn-at-most [turn max-turn]  ;; turtle procedure
 end
 
 to output
-  file-open "test2.csv"
+  file-open "test5.csv"
   ;;file-print ( word "---------- Tick Number: " ticks "-----------" )
   ;;file-print ( word "tick: " ticks self ": xcor: " xcor " ycor: " ycor " heading: " heading )
   file-print ( word ticks " " who " " xcor " " ycor " " heading)

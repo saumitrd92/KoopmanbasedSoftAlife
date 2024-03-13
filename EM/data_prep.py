@@ -153,6 +153,7 @@ def prep_training_data(params):
     df_master10['Case'] = [10]*df_master10.shape[0]
     df_master = pd.concat([df_master1,df_master2,df_master3,df_master4,df_master5,df_master6,df_master7,df_master8,df_master9,df_master10],ignore_index=True)
 
+    df_master = df_master.loc[df_master.Time < 100]
     # print(df_master.describe())
 
     # df_master = pd.read_csv(params['exp_path']+'sim_data/training/training1.csv', sep=' ',names=['Time', 'Agent', 'X', 'Y', 'Heading'])

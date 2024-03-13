@@ -94,7 +94,7 @@ class MyTuner(keras_tuner.RandomSearch):
         return training_code(params)
 
 tuner = MyTuner(
-    max_trials=10, overwrite=True, directory=exp_name+'/tmp', project_name=exp_name,
+    max_trials=30, overwrite=True, directory=exp_name+'/tmp', project_name=exp_name,
 )
 
 tuner.search()
