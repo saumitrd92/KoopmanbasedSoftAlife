@@ -19,23 +19,6 @@ warnings.filterwarnings("ignore")
 
 
 def form_complex_conjugate_block(omegas, delta_t, j):
-
-    """Form a 2x2 block for a complex conj. pair of eigenvalues, but for each example, so dimension [None, 2, 2]
-
-    2x2 Block is
-    exp(mu * delta_t) * [cos(omega * delta_t), -sin(omega * delta_t)
-                            sin(omega * delta_t), cos(omega * delta_t)]
-
-    Arguments:
-        omegas -- array of parameters for blocks. first column is freq. (omega) and 2nd is scaling (mu), size [None, 2]
-        delta_t -- time step in trajectories from input data
-
-    Returns:
-        stack of 2x2 blocks, size [None, 2, 2], where first dimension matches first dimension of omegas
-
-    Side effects:
-        None
-    """
     scale = tf.exp(omegas[j].output[:, 1] * delta_t)
     entry11 = tf.multiply(scale, tf.cos(omegas[j].output[:, 0] * delta_t))
     entry12 = tf.multiply(scale, tf.sin(omegas[j].output[:, 0] * delta_t))
@@ -134,22 +117,6 @@ def koopman_block(args):
         else:
             temp_lam = lamda_nn_real(lam_inputs[:,i+num_complex_pairs][:, np.newaxis],i)
         lam_list.append(temp_lam)
-
-    """Multiply y-coordinates on the left by matrix L, but let matrix vary.
-
-    Arguments:
-        y -- array of shape [None, k] of y-coordinates, where L will be k x k
-        omegas -- list of arrays of parameters for the L matrices
-        delta_t -- time step in trajectories from input data
-        num_real -- number of real eigenvalues
-        num_complex_pairs -- number of pairs of complex conjugate eigenvalues
-
-    Returns:
-        array same size as input y, but advanced to next time step
-
-    Side effects:
-        None
-    """
 
     delta_t = tf.constant(1.0)
 
